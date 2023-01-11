@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Script for displaying a icon in Polybar when there are system updates available
+
+AVAIL_UPDATES=$(yay -Qu | wc -l)
+
+[[ "$AVAIL_UPDATES" -ge 1 ]] && echo "%{F#e78c39}%{F-} $AVAIL_UPDATES"
