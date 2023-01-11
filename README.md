@@ -13,7 +13,7 @@ Basic Arch installation following the Arch install guide
 - gtk3
 - gtk4
 - i3-wm
-- nautilus
+- thunar 
 - neovim
 - noto-fonts
 - noto-fonts-emoji
