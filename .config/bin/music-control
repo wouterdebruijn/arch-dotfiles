@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# New and improved music control script by Wouter de Bruijn 2023-01-10
+
+PREFERED_PLAYER="firefox"
+
+[[ -z "$@" ]] && echo "No command was specified!" && exit 1
+
+# Return formatted output for polybar
+if [ "$1" == 'bar' ]; then
+	OUTPUT=""
+
+	while true; do
+		PREFIX=$(music-control metadata --format "{{ artist }} - {{ title }}")
+		STATUS=$(music-control metadata --format "{{ status }}")
+		NEW="%{F#e78c39}$([[ $STATUS == 'Playing' ]] && echo ' ' || echo '')%{F-} $PREFIX"
+
+		[[ "$OUTPUT" != "$NEW" ]] && OUTPUT=$NEW && echo "${OUTPUT:0:64}"
+		sleep 2
+	done
+fi
+
+# Execute specified command with args on the prefered player, or any other player if we can't find it.
+playerctl --player=$PREFERED_PLAYER,%any "$@"
