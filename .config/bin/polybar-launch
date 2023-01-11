@@ -3,4 +3,15 @@
 # Terminate old instances
 killall -q polybar
 
-polybar primary & disown
+# It is expected that the display-setup script has run. So we have a primary screen
+PRIMARY=$(xrandr --listmonitors | grep \* | awk '{print $4}')
+EXTRAS=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
+
+XDR_DISPLAY="$PRIMARY" polybar primary & disown
+
+for EXTRA in "${EXTRAS[@]}"
+do
+    XDR_DISPLAY="$EXTRA" polybar secondary & disown
+done
+
+
