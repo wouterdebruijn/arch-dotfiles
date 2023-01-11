@@ -233,3 +233,9 @@ bindsym $mod+Shift+grave exec dunstctl history-pop
 
 # Emoji picker
 bindsym $mod+Tab exec rofimoji
+
+#####
+##### Custom symbol bindings
+#####
+# Battle.Net What's New Pop-up
+for_window [class="battle.net.exe" title="What's New"] floating enable
