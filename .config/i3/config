@@ -74,11 +74,11 @@ exec --no-startup-id .config/bin/polybar-launch
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
 
 # Open Maim in selection mode on printscreen
-bindsym Print exec screenshot -s
-bindsym $mod+Print exec screenshot -g 2560x1440+2560+0
+bindsym Print exec --no-startup-id screenshot -s
+bindsym $mod+Print --no-startup-id exec screenshot -g 2560x1440+2560+0
 
 # Open firefox on F1
-bindsym $mod+F1 exec --no-startup-id firefox
+bindsym $mod+F1 exec firefox
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -226,13 +226,12 @@ bindsym $mod+r mode "resize"
 #####
 ##### Custom symbol bindings
 #####
-
 # Dunst controls
-bindsym $mod+grave exec dunstctl close
-bindsym $mod+Shift+grave exec dunstctl history-pop
+bindsym $mod+grave exec --no-startup-id dunstctl close
+bindsym $mod+Shift+grave exec --no-startup-id dunstctl history-pop
 
 # Emoji picker
-bindsym $mod+Tab exec rofimoji
+bindsym $mod+Tab exec --no-startup-id rofimoji
 
 #####
 ##### Custom symbol bindings
