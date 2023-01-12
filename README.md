@@ -36,4 +36,4 @@ Basic Arch installation following the Arch install guide
 - xdg-desktop-portal
 - xdg-desktop-portal-gtk
 - maim
-- ttf-font-awesome-4
+- ttf-font-awesome
