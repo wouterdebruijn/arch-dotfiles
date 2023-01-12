@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pw-link "Logitech G633 Gaming Headset:monitor_FL" "HDA Intel PCH:playback_FL"
+pw-link "Logitech G633 Gaming Headset:monitor_FR" "HDA Intel PCH:playback_FR"
