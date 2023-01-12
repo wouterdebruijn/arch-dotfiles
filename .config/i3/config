@@ -241,3 +241,6 @@ bindsym $mod+Tab exec --no-startup-id rofimoji
 #####
 # Battle.Net What's New Pop-up
 for_window [class="battle.net.exe" title="What's New"] floating enable
+
+# lxqt-openssh-askpass prompt
+for_window [class="lxqt-openssh-askpass"] floating enable
