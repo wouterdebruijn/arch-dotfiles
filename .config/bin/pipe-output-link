@@ -1,4 +1,20 @@
 #!/bin/bash
 
-pw-link "Logitech G633 Gaming Headset:monitor_FL" "HDA Intel PCH:playback_FL"
-pw-link "Logitech G633 Gaming Headset:monitor_FR" "HDA Intel PCH:playback_FR"
+DEFAULT_OUTPUT="Logitech G633 Gaming Headset"
+ADDITIONAL_OUTPUT="HDA Intel PCH"
+
+PORTS=("FL" "FR")
+
+for i in {0..60}
+do
+    SETS=0
+    # Trying to link devices
+    for P in ${PORTS[@]}
+    do
+        pw-link "$DEFAULT_OUTPUT:monitor_$P" "$ADDITIONAL_OUTPUT:playback_$P" && SETS=$(( $SETS + 1))
+    done
+
+    [[ $SETS -ge ${#PORTS[@]} ]] && break
+
+    sleep 1
+done
