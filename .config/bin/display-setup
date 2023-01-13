@@ -7,7 +7,9 @@
 # $2: primary screen "DP-2" "DP-1"
 
 # Set Primary Display
-xrandr --output "$2" --primary
+VNC=$(xrandr | grep VNC | awk '{print $1}')
+
+[[ "$VNC" ]] && xrandr --output "$VNC" --primary || xrandr --output "$2" --primary
 
 PRIMARY=$(xrandr --listmonitors | grep \* | awk '{print $4}')
 EXTRA=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')

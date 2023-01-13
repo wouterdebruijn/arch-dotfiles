@@ -11,7 +11,7 @@ XDR_DISPLAY="$PRIMARY" polybar primary & disown
 
 for EXTRA in "${EXTRAS[@]}"
 do
-    XDR_DISPLAY="$EXTRA" polybar secondary & disown
+    [[ $EXTRA ]] && XDR_DISPLAY="$EXTRA" polybar secondary & disown
 done
 
 
