@@ -3,7 +3,7 @@
 # New Screenshot script by Wouter de Bruijn using maim in space of scrot
 
 # Run maim to create a screenshot, saving it to disk
-maim -m 1 $@ -o ~/Pictures/screenshot.png
+maim -m 1 $@ -u -o ~/Pictures/screenshot.png
 
 # Copy screenshot to clipboard
 xclip ~/Pictures/screenshot.png -selection clipboard -t image/png
