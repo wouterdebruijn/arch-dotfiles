@@ -1,3 +1,15 @@
+[Added Associations]
+application/octet-stream=code.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+text/html=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
 
 [Default Applications]
 image/x-tga=sxiv.desktop
@@ -16,7 +28,7 @@ text/tcl=code.desktop
 text/x-moc=code.desktop
 text/x-csrc=code.desktop
 text/x-tex=code.desktop
-text/html=code.desktop
+text/html=firefox.desktop
 text/plain=code.desktop
 video/x-nsv=vlc.desktop
 video/x-anim=vlc.desktop
@@ -73,3 +85,16 @@ audio/flac=vlc.desktop
 audio/vnd.dts.hd=vlc.desktop
 audio/x-aiff=vlc.desktop
 audio/x-adpcm=vlc.desktop
+application/octet-stream=code.desktop
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+application/json=firefox.desktop
+application/x-xpinstall=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
