@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEFAULT_OUTPUT="Logitech G633 Gaming Headset"
-ADDITIONAL_OUTPUT="HDA Intel PCH"
+ADDITIONAL_OUTPUT="ALC1220 Analog"
 
 PORTS=("FL" "FR")
 
