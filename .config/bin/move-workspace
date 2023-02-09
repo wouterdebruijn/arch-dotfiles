@@ -1,0 +1,59 @@
+#!/bin/python
+
+import subprocess
+import regex
+
+output = subprocess.check_output(["xrandr", "--listactivemonitors"]).decode("utf-8").split("\n")[1:-1]
+
+screens = []
+
+for screen in output:
+    parts = screen.strip().split(" ")
+
+    digits = regex.findall(r"\d+", parts[2])
+
+    output = parts[4]
+    height = int(digits[2])
+    width = int(digits[0])
+    horizontal_offset = int(digits[4])
+    vertical_offset = int(digits[5])
+    primary = "*" in parts[1]
+
+    screens.append({
+        "output": output,
+        "height": height,
+        "width": width,
+        "horizontal_offset": horizontal_offset,
+        "vertical_offset": vertical_offset,
+        "location": "primary" if primary else "unknown",
+        "primary": primary
+    })
+
+# Set the locations for the screens based on their position relative to the primary screen
+primary_screen = next(screen for screen in screens if screen["primary"])
+for screen in screens:
+    if screen["primary"]:
+        continue
+
+    if screen["horizontal_offset"] < primary_screen["horizontal_offset"]:
+        screen["location"] = "left"
+    elif screen["horizontal_offset"] > primary_screen["horizontal_offset"]:
+        screen["location"] = "right"
+    elif screen["vertical_offset"] < primary_screen["vertical_offset"]:
+        screen["location"] = "above"
+    elif screen["vertical_offset"] > primary_screen["vertical_offset"]:
+        screen["location"] = "below"
+
+# Display rofi menu with the piped in locations
+locations = [f"{screen['location']} {screen['output']}" for screen in screens]
+
+try:
+    user_selection = subprocess.check_output(["rofi", "-dmenu", "-p", "Move workspace to:"], input="\n".join(locations).encode("utf-8")).decode("utf-8").strip()
+except subprocess.CalledProcessError:
+    user_selection = None
+
+
+# Move the workspace to the selected location
+if user_selection:
+    location, output = user_selection.split(" ")
+    subprocess.run(["i3-msg", f"move workspace to output {output} {location}"])
