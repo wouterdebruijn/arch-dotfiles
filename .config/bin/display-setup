@@ -15,7 +15,7 @@ PRIMARY=$(xrandr --listmonitors | grep \* | awk '{print $4}')
 EXTRA=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
 
 # Verify we have 1 extra screen
-[[ $(wc -w <<< "$EXTRA") == 1 ]] || "echo 'More than 1 extra screen is not supported.' && exit 1"
+[[ $(wc -w <<< "$EXTRA") == 1 ]] || "echo 'Detected more or less than 1 extra screen, aborting.' && exit 1"
 
 case $1 in
 right)
@@ -23,6 +23,7 @@ right)
 left)
 	xrandr --output "$EXTRA" --left-of "$PRIMARY"
 	# Set workspace 1 to the extra screen, all other workspaces are wanted on the primary screen
+    # This is a PC specific config
 	i3-msg "workspace 1, move workspace to output $EXTRA"
 	i3-msg "workspace 2, move workspace to output $PRIMARY";;
 above)
