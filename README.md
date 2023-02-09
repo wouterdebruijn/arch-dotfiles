@@ -7,33 +7,84 @@ My (Arch)Linux setup using the i3 window manager. Provides a minimalistic system
 # Installation
 Basic Arch installation following the Arch install guide
 ## Packages
-- alacritty
-- gnome-keyring
-- gtk2
-- gtk3
-- gtk4
-- i3-wm
-- thunar 
-- neovim
-- noto-fonts
-- noto-fonts-emoji
-- pipewire
-- pipewire-alsa
-- pipewire-pulse
-- polybar
-- qt5ct
-- rofi
-- rofi-greenclip
-- rofimoji
-- seahorse
-- sxiv
-- xss-lock
-- libsecret
-- pam
-- gvfs-smb
-- gvfs-goa
-- ntfs-3g
-- xdg-desktop-portal
-- xdg-desktop-portal-gtk
-- maim
-- ttf-font-awesome
+ - vlc
+ - qt5ct
+ - kcmshell5
+ - pavucontrol
+ - gnome-keyring
+ - libsecret
+ - pam
+ - gvfs-smb
+ - steam
+ - lib32-nvidia-utils
+ - gparted
+ - ntfs-3g
+ - pipewire-alsa
+ - nvidia-settings
+ - nvidia
+ - xdg-desktop-portal
+ - xdg-desktop-portal-gtk
+ - gtk4
+ - alacritty
+ - neovim
+ - gnome-themes-extra
+ - maim
+ - sxiv
+ - playerctl
+ - man
+ - htop
+ - dunst
+ - network-manager-applet
+ - rofimoji
+ - python-pip
+ - ranger
+ - grep
+ - ttf-font-awesome
+ - openssh
+ - lutris
+ - lib32-pipewire
+ - kcalc
+ - adwaita-qt5
+ - thunar
+ - tumbler
+ - xarchiver
+ - helvum
+ - iptables-nft
+ - dnsmasq
+ - bridge-utils
+ - libvirt
+ - polkit-gnome
+ - polkit-kde-agent
+ - virt-manager
+ - lightdm
+ - lightdm-gtk-greeter
+ - numlockx
+ - lxqt-openssh-askpass
+ - tigervnc
+ - chromium
+ - kde-gtk-config
+ - xsettingsd
+ - pwgen
+ - thunderbird
+ - libreoffice-fresh
+ - hunspell
+ - redshift
+ - alsamixer
+ - alsa-tools
+ - alsa-utils
+ - dkms
+ - cups
+ - avahi
+ - nss-mdns
+ - gutenprint
+ - ghostscript
+ - bind
+ - wireplumber
+ - inetutils
+ - nextcloud-client
+ - gimp
+ - docker
+ - mariadb
+
+ ## AUR
+ - rofi-greenclip
