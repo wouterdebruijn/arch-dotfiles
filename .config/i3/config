@@ -62,7 +62,7 @@ exec --no-startup-id greenclip daemon &>/dev/null
 exec --no-startup-id dunst
 
 # Launch Redshift
-exec --no-startup-id redshift -l "52.37403:4.88969"
+exec --no-startup-id redshift -l "52.37403:4.88969" -t 6500:3200
 
 # Execute wallpaper script
 exec --no-startup-id .config/bin/set-wallpaper
