@@ -15,7 +15,7 @@ endif
 
 let g:vim_bootstrap_langs = ""
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "sonokai"
+let g:vim_bootstrap_theme = "wal"
 let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
@@ -52,7 +52,7 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'sainnhe/sonokai'
+Plug 'dylanaraps/wal.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -144,7 +144,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme sonokai
+colorscheme wal
 
 " Better command line completion 
 set wildmenu

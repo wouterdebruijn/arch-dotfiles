@@ -1,2 +1,12 @@
 #!/bin/bash
-xwallpaper --zoom ~/Pictures/Wallpapers/current.jpg
+#
+# Set a new wallpaper, uses pywal and rofi
+#
+
+SELECTED=$(ls ~/Pictures/Wallpapers -la | awk '{print $9}' | grep .jpg | rofi -dmenu)
+wal -i ~/Pictures/Wallpapers/${SELECTED} -b "#1d1f21"
+
+
+# Restart polybar's to set the new color env vars.
+sleep 1
+polybar-launch

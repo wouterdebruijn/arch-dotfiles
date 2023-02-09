@@ -1,3 +1,6 @@
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
 configuration {
 /*	modes: "window,drun,run,ssh";*/
 /*	font: "mono 12";*/
@@ -150,4 +153,4 @@ configuration {
   }
 }
 //@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"
-@theme "/usr/share/rofi/themes/glue_pro_blue_wouter.rasi"
+//@theme "/usr/share/rofi/themes/glue_pro_blue_wouter.rasi"

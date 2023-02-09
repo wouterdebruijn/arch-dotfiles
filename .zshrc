@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.config/bin:$PATH
+# Path should be changed in zshenv
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -105,3 +105,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
+
+# Load wal theme
+(cat ~/.cache/wal/sequences &)

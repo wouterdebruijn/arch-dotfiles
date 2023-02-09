@@ -7,11 +7,17 @@ killall -q polybar
 PRIMARY=$(xrandr --listmonitors | grep \* | awk '{print $4}')
 EXTRAS=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
 
+# Set colors
+. ~/.cache/wal/colors.sh
+
+export BAR_WORKSPACE_LABEL="%{F$color1}%icon%%{F-} %name%"
+export BAR_MOUNTPOINT_LABEL="%{F$color1}%mountpoint%%{F-} %percentage_used%%"
+export BAR_ETH_LABEL="%local_ip% %{F$color1} %{F-} %downspeed% %{F$color1} %{F-} %upspeed%"
+
 XDR_DISPLAY="$PRIMARY" polybar primary & disown
 
 for EXTRA in "${EXTRAS[@]}"
 do
     [[ $EXTRA ]] && XDR_DISPLAY="$EXTRA" polybar secondary & disown
 done
-
 
