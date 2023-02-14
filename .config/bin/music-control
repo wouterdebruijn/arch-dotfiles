@@ -16,7 +16,7 @@ if [ "$1" == 'bar' ]; then
 	while true; do
 		PREFIX=$(music-control metadata --format "{{ artist }} - {{ title }}")
 		STATUS=$(music-control metadata --format "{{ status }}")
-		NEW="%{F${color7}}$([[ $STATUS == 'Playing' ]] && echo ' ' || echo '')%{F-} $PREFIX"
+		NEW="%{F${color1}}$([[ $STATUS == 'Playing' ]] && echo ' ' || echo '')%{F-} $PREFIX"
 
 		[[ "$OUTPUT" != "$NEW" ]] && OUTPUT=$NEW && echo "${OUTPUT:0:64}"
 		sleep 2

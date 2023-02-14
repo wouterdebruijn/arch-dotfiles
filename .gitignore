@@ -1,0 +1,86 @@
+# Ignore everything in the root of the repository
+**/*
+
+!.gitignore
+
+# Except the following files
+# README file + static data
+!README.md
+!.static
+!.static/i3-screenshot.png
+
+# Wallpapers
+!Pictures
+!Pictures/Wallpapers
+!Pictures/Wallpapers/README.md
+
+# Zsh
+!.zshrc
+!.zshenv
+
+# X
+!.Xresources
+!.xprofile
+
+# GTK
+!.gtkrc-2.0
+
+# Config folder
+!.config
+
+# Mimetype
+!.config/mimeapps.list
+
+# GTK
+!.config/gtk-3.0
+!.config/gtk-3.0/settings.ini
+
+# Alacritty
+!.config/alacritty
+!.config/alacritty/alacritty.yml
+
+# Neovim
+!.config/nvim
+!.config/nvim/init.vim
+
+# Dunst
+!.config/dunst
+!.config/dunst/dunstrc
+
+# Bin
+!.config/bin
+!.config/bin/**/*
+
+# Polybar
+!.config/polybar
+!.config/polybar/**/*
+
+# Rofi
+!.config/rofi
+!.config/rofi/**/*
+
+# Rofimoji
+!.config/rofimoji.rc
+
+# Greenclip
+!.config/greenclip.toml
+
+# i3
+!.config/i3
+!.config/i3/config
+
+# Systemd user services
+!.config/systemd
+!.config/systemd/**/*
+
+# Autostart
+!.config/autostart
+!.config/autostart/**/*
+
+# Picom
+!.config/picom
+!.config/picom/**/*
+
+# Sxiv
+!.config/sxiv
+!.config/sxiv/**/*

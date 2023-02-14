@@ -1,12 +1,18 @@
 #!/bin/bash
 #
-# Set a new wallpaper, uses pywal and rofi
+# Set a new wallpaper, using sxiv as a interactive selector. (Wallpaper is selected using a external sxiv shortcut (Ctrl + X and then Ctrl + W) (Is available across all of sxiv)
 #
 
-SELECTED=$(ls ~/Pictures/Wallpapers -la | awk '{print $9}' | grep .jpg | rofi -dmenu)
-wal -i ~/Pictures/Wallpapers/${SELECTED} -b "#1d1f21"
+# Launch sxiv listing all wallpapers when no picture is given.
+if [[ -z "$1" ]];
+then
+    sxiv -t ~/Pictures/Wallpapers/*.jpg -N "wallpaperselector"
+    exit 0
+fi
 
+# Set the wallpaper generating new colors
+wal -i $1 -b "#1d1f21"
 
-# Restart polybar's to set the new color env vars.
+# Restart polybar fixing env variable colors
 sleep 1
 polybar-launch
