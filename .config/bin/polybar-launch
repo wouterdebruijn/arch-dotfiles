@@ -12,7 +12,7 @@ EXTRAS=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
 
 export BAR_WORKSPACE_LABEL="%{F$color1}%icon%%{F-} %name%"
 export BAR_MOUNTPOINT_LABEL="%{F$color1}%mountpoint%%{F-} %percentage_used%%"
-export BAR_ETH_LABEL="%local_ip% %{F$color1} %{F-} %downspeed% %{F$color1} %{F-} %upspeed%"
+export BAR_ETH_LABEL="%local_ip% %{F$color1} %{F-}%downspeed% %{F$color1} %{F-}%upspeed%"
 
 XDR_DISPLAY="$PRIMARY" polybar primary & disown
 
