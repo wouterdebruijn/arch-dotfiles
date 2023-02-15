@@ -11,10 +11,8 @@ do
     # Trying to link devices
     for P in ${PORTS[@]}
     do
-        pw-link "$DEFAULT_OUTPUT:monitor_$P" "$ADDITIONAL_OUTPUT:playback_$P" && SETS=$(( $SETS + 1))
+        pw-link "$DEFAULT_OUTPUT:monitor_$P" "$ADDITIONAL_OUTPUT:playback_$P" &> /dev/null && SETS=$(( $SETS + 1))
     done
 
-    [[ $SETS -ge ${#PORTS[@]} ]] && break
-
-    sleep 1
+    sleep 2
 done

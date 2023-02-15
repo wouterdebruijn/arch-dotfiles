@@ -1,0 +1,19 @@
+[Unit]
+Description=Output link for pipewire session
+After=pipewire-session-manager.service
+
+[Service]
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+RestrictNamespaces=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+Type=simple
+ExecStart=/home/wouter/.config/bin/pipe-output-link
+Restart=on-failure
+Slice=session.slice
+Environment=GIO_USE_VFS=local
+
+[Install]
+WantedBy=default.target

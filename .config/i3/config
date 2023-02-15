@@ -72,9 +72,6 @@ exec --no-startup-id redshift -l "52.37403:4.88969" -t 6500:3200
 # Execute Polybar script
 exec --no-startup-id .config/bin/polybar-launch
 
-# Execute audio link script
-exec --no-startup-id .config/bin/pipe-output-link
-
 ####
 #### User application autolaunchs
 ####
