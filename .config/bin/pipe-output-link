@@ -5,7 +5,7 @@ ADDITIONAL_OUTPUT="ALC1220 Analog"
 
 PORTS=("FL" "FR")
 
-for i in {0..60}
+while true;
 do
     SETS=0
     # Trying to link devices
@@ -14,5 +14,5 @@ do
         pw-link "$DEFAULT_OUTPUT:monitor_$P" "$ADDITIONAL_OUTPUT:playback_$P" &> /dev/null && SETS=$(( $SETS + 1))
     done
 
-    sleep 2
+    sleep 5
 done
