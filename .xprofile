@@ -1,3 +1,4 @@
 #!/bin/sh
 [ -f ~/.zshenv ] && . ~/.zshenv
-wal -R
+lxpolkit &
+wal -R &
