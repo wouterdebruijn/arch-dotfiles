@@ -85,6 +85,9 @@ Basic Arch installation following the Arch install guide
  - gimp
  - docker
  - mariadb
+ - oxygen
+ - oxygen-icons
+ - xorg-xwininfo
 
  ## AUR
  - rofi-greenclip
