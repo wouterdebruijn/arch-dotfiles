@@ -1,0 +1,11 @@
+[Unit]
+Description=Systemd Service for the KDEConnect Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/kdeconnectd
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
