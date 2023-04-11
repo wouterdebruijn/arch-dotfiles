@@ -1,7 +1,2 @@
 #!/bin/bash
-
-# Get the current active window
-WINDOW=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
-ROLE=$(xprop -id "$WINDOW" | awk '/_NET_WM_WINDOW_ROLE\(STRING\)/{print $NF}')
-
-[ "$ROLE" = '"solid"' ] && xdotool set_window --role "none" $WINDOW || xdotool set_window --role "solid" $WINDOW
+picom-trans -c --toggle 100
