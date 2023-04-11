@@ -16,3 +16,6 @@ wal -i $1 -b "#1d1f21"
 # Restart polybar fixing env variable colors
 sleep 1
 polybar-launch
+
+# Generate Discord color theme
+pywal-discord
