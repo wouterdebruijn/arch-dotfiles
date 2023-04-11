@@ -20,6 +20,10 @@ application/rss+xml=userapp-Thunderbird-7I7ZZ1.desktop;
 application/x-extension-rss=userapp-Thunderbird-7I7ZZ1.desktop;
 x-scheme-handler/webcal=userapp-Thunderbird-F2R3Z1.desktop;
 x-scheme-handler/webcals=userapp-Thunderbird-F2R3Z1.desktop;
+application/pdf=firefox.desktop;
+application/x-zerosize=code.desktop;sxiv.desktop;
+application/json=code.desktop;
+application/x-java-archive=xarchiver.desktop;
 
 [Default Applications]
 image/x-tga=sxiv.desktop
@@ -121,3 +125,6 @@ x-scheme-handler/webcal=userapp-Thunderbird-F2R3Z1.desktop
 text/calendar=userapp-Thunderbird-F2R3Z1.desktop
 application/x-extension-ics=userapp-Thunderbird-F2R3Z1.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-F2R3Z1.desktop
+application/pdf=firefox.desktop
+application/x-zerosize=sxiv.desktop
+x-scheme-handler/discord-696343075731144724=discord-696343075731144724.desktop
