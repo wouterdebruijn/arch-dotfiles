@@ -1,4 +1,4 @@
-export PATH=$HOME/.config/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.config/bin:$HOME/.local/bin:$HOME/bin:$PATH
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GTK_THEME=Adwaita:dark
 export VISUAL=nvim
