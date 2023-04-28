@@ -25,8 +25,9 @@ default_border pixel 1
 # Load colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $focus_bg i3wm.color4 #f0f0f0
 
-client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused          $bg     $focus_bg     $fg  $bg       $focus_bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
@@ -115,7 +116,7 @@ bindsym XF86AudioPlay exec --no-startup-id music-control play-pause
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -241,11 +242,17 @@ mode "resize" {
 
         bindsym c move position center
 
-        bindsym 1 resize set 800 600 px
-        bindsym 2 resize set 800 800 px
-        bindsym 3 resize set 1000 1000 px
-        bindsym 4 resize set 1920 1080 px
-        bindsym 5 resize set 2400 1300 px
+        bindsym 1 resize set 800 600 px; move position center
+        bindsym 2 resize set 800 800 px; move position center
+        bindsym 3 resize set 1000 1000 px; move position center
+        bindsym 4 resize set 1920 1080 px; move position center
+        bindsym 5 resize set 2400 1300 px; move position center
+
+        bindsym $mod+1 resize set 800 600 px
+        bindsym $mod+2 resize set 800 800 px
+        bindsym $mod+3 resize set 1000 1000 px
+        bindsym $mod+4 resize set 1920 1080 px
+        bindsym $mod+5 resize set 2400 1300 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
