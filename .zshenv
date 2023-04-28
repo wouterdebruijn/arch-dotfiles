@@ -1,6 +1,7 @@
 export PATH=$HOME/.config/bin:$HOME/.local/bin:$PATH
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GTK_THEME=Adwaita:dark
+export TERMINAL=alacritty
 export VISUAL=nvim
 export EDITOR=nvim
 export MAKEFLAGS="-j$(nproc)"
