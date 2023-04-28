@@ -24,6 +24,8 @@ application/pdf=firefox.desktop;
 application/x-zerosize=code.desktop;sxiv.desktop;
 application/json=code.desktop;
 application/x-java-archive=xarchiver.desktop;
+zip/sketch=lunacy.desktop;
+application/x-shellscript=code.desktop;
 
 [Default Applications]
 image/x-tga=sxiv.desktop
@@ -128,3 +130,4 @@ x-scheme-handler/webcals=userapp-Thunderbird-F2R3Z1.desktop
 application/pdf=firefox.desktop
 application/x-zerosize=sxiv.desktop
 x-scheme-handler/discord-696343075731144724=discord-696343075731144724.desktop
+zip/sketch=lunacy.desktop
