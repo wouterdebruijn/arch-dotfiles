@@ -106,5 +106,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 
-# Load wal theme
-(cat ~/.cache/wal/sequences &)
+if [ -z "$SSH_CLIENT" ]; then
+    # Load wal theme
+    (cat ~/.cache/wal/sequences &)
+fi
