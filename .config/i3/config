@@ -91,6 +91,7 @@ bindsym $mod+m exec --no-startup-id move-workspace
 # Open Maim in selection mode on printscreen
 bindsym Print exec --no-startup-id screenshot -s
 bindsym $mod+Print exec --no-startup-id screenshot -g 2560x1440+2560+0
+bindsym $mod+shift+Print exec sxiv ~/Pictures/screenshot.png
 
 # Toggle picom transparency role
 bindsym $mod+t exec --no-startup-id toggle-transparency
