@@ -2,4 +2,4 @@
 [ -f ~/.zshenv ] && . ~/.zshenv
 lxpolkit &
 numlockx &
-wal -R &
+wal -R
