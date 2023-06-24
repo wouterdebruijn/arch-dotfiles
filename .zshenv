@@ -9,3 +9,4 @@ export SSH_ASKPASS=lxqt-openssh-askpass
 export QT_QPA_PLATFORMTHEME=qt5ct
 export GPG_TTY=$(tty)
 export TERM=xterm-256color
+export LIBVA_DRIVER_NAME=nvidia
