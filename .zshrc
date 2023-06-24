@@ -105,6 +105,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
+alias cwd="pwd | clipcopy"
+alias owd="nohup thunar &> /dev/null"
 
 if [ -z "$SSH_CLIENT" ]; then
     # Load wal theme
