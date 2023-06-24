@@ -2,14 +2,22 @@
 
 # Display setup script by Wouter de Bruijn on 2023-01-10
 
-# Help:
-# $1: Primary Screen location, "right", "left", "above", "below", "mirror"
-# $2: primary screen "DP-2" "DP-1"
+
+print_help () {
+echo 'Custom display setup script:
+    arg1: Primary screen "DP-0" "DP-1"
+    arg2: Secondary screen location, "right", "left", "above", "below", "mirror"'
+}
+
+if [ $# -eq 0 ] | [ "$1" = "--help" ] || [ "$1" = "-h" ]
+then
+    print_help
+    exit 0
+fi
 
 # Set Primary Display
 VNC=$(xrandr | grep VNC | awk '{print $1}')
-
-[[ "$VNC" ]] && xrandr --output "$VNC" --primary || xrandr --output "$2" --primary
+[[ "$VNC" ]] && xrandr --output "$VNC" --primary || xrandr --output "$1" --primary
 
 PRIMARY=$(xrandr --listmonitors | grep \* | awk '{print $4}')
 EXTRA=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
@@ -17,19 +25,18 @@ EXTRA=$(xrandr --listmonitors | grep + | grep -v '\*' | awk '{print $4}')
 # Verify we have 1 extra screen
 [[ $(wc -w <<< "$EXTRA") == 1 ]] || "echo 'Detected more or less than 1 extra screen, aborting.' && exit 1"
 
-case $1 in
-right)
-	xrandr --output "$EXTRA" --right-of "$PRIMARY";;
-left)
-	xrandr --output "$EXTRA" --left-of "$PRIMARY"
-	# Set workspace 1 to the extra screen, all other workspaces are wanted on the primary screen
-    # This is a PC specific config
-	i3-msg "workspace 1, move workspace to output $EXTRA"
-	i3-msg "workspace 2, move workspace to output $PRIMARY";;
-above)
-	xrandr --output "$EXTRA" --above "$PRIMARY";;
-below)
-	xrandr --output "$EXTRA" --below "$PRIMARY";;
-mirror)
-	xrandr --output "$EXTRA" --mirror "$PRIMARY";;
+case $2 in
+    right)
+    	xrandr --output "$EXTRA" --right-of "$PRIMARY";;
+    left)
+    	xrandr --output "$EXTRA" --left-of "$PRIMARY"
+    	# Set workspace 1 to the extra screen, all other workspaces are wanted on the primary screen
+    	i3-msg "workspace 1, move workspace to output $EXTRA"
+    	i3-msg "workspace 2, move workspace to output $PRIMARY";;
+    above)
+    	xrandr --output "$EXTRA" --above "$PRIMARY";;
+    below)
+    	xrandr --output "$EXTRA" --below "$PRIMARY";;
+    mirror)
+    	xrandr --output "$EXTRA" --mirror "$PRIMARY";;
 esac
