@@ -1,5 +1,6 @@
 #!/bin/sh
 [ -f ~/.zshenv ] && . ~/.zshenv
+nvidia-settings --load-config-only &
 lxpolkit &
 numlockx &
 wal -R
