@@ -112,3 +112,11 @@ if [ -z "$SSH_CLIENT" ]; then
     # Load wal theme
     (cat ~/.cache/wal/sequences &)
 fi
+
+# pnpm
+export PNPM_HOME="/home/wouter/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
