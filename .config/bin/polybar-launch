@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Reset tray in current bar
+# pkill -USR1 polybar
+
 # Terminate old instances
 killall -q polybar
 
