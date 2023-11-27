@@ -80,8 +80,12 @@ exec --no-startup-id .config/bin/polybar-launch
 ####
 #### User application autolaunchs
 ####
-exec --no-startup-id discord
+# Workspace 1
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
+
 exec --no-startup-id firefox
+exec --no-startup-id discord
+exec --no-startup-id spotify
 
 ####
 #### Application shortcuts
