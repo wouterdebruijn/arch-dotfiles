@@ -11,7 +11,8 @@ then
 fi
 
 # Set the wallpaper generating new colors
-wal -i $1 -b "#1d1f21"
+wal -i $@
+#wal -i $1 -b "#1d1f21"
 
 # Restart polybar fixing env variable colors
 sleep 1
