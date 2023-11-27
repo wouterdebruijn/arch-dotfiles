@@ -20,14 +20,19 @@ application/rss+xml=userapp-Thunderbird-7I7ZZ1.desktop;
 application/x-extension-rss=userapp-Thunderbird-7I7ZZ1.desktop;
 x-scheme-handler/webcal=userapp-Thunderbird-F2R3Z1.desktop;
 x-scheme-handler/webcals=userapp-Thunderbird-F2R3Z1.desktop;
-application/pdf=firefox.desktop;
+application/pdf=gimp.desktop;firefox.desktop;libreoffice-draw.desktop;pdfmod.desktop;
 application/x-zerosize=code.desktop;sxiv.desktop;Alacritty.desktop;
 application/json=code.desktop;
-application/x-java-archive=java-java-openjdk.desktop;xarchiver.desktop;
+application/x-java-archive=jd-gui.desktop;java-java-openjdk.desktop;xarchiver.desktop;
 zip/sketch=lunacy.desktop;
 application/x-shellscript=nvim.desktop;Alacritty.desktop;code.desktop;
-text/plain=libreoffice-writer.desktop;
+text/plain=nvim.desktop;wine-extension-txt.desktop;wine.desktop;libreoffice-writer.desktop;
 image/jpeg=gimp.desktop;
+text/csv=code.desktop;
+image/png=gimp.desktop;chromium.desktop;
+image/gif=feh.desktop;
+audio/x-mpegurl=nvim.desktop;wine-extension-txt.desktop;
+application/vnd.apple.mpegurl=vlc.desktop;
 
 [Default Applications]
 image/x-tga=sxiv.desktop
