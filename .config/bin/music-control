@@ -18,7 +18,7 @@ if [ "$1" == 'bar' ]; then
 		STATUS=$(music-control metadata --format "{{ status }}")
 		NEW="%{F${color1}}$([[ $STATUS == 'Playing' ]] && echo ' ' || echo '')%{F-} $PREFIX"
 
-		[[ "$OUTPUT" != "$NEW" ]] && OUTPUT=$NEW && echo "${OUTPUT:0:64}"
+		[[ "$OUTPUT" != "$NEW" ]] && OUTPUT=$NEW && echo "${OUTPUT:0:128}"
 		sleep 2
 	done
 fi
