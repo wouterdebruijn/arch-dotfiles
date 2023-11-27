@@ -3,4 +3,5 @@
 nvidia-settings --load-config-only &
 lxpolkit &
 numlockx &
+pw-v4l2 &
 wal -R
