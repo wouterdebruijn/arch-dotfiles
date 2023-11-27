@@ -6,4 +6,10 @@ do
                 echo "$file"
                 set-wallpaper "$file" ;;
         esac
+        case "$1" in
+        "C-W")
+                echo "$file"
+                set-wallpaper "$file" -l ;;
+        esac
+
 done
