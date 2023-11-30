@@ -4,15 +4,12 @@ DEFAULT_OUTPUT="Logitech G633 Gaming Headset"
 ADDITIONAL_OUTPUT="ALC1220 Analog"
 
 PORTS=("FL" "FR")
+ADD_PORTS=("1" "2")
 
-while true;
-do
-    SETS=0
-    # Trying to link devices
-    for P in ${PORTS[@]}
-    do
-        pw-link "$DEFAULT_OUTPUT:monitor_$P" "$ADDITIONAL_OUTPUT:playback_$P" &> /dev/null && SETS=$(( $SETS + 1))
-    done
+while true; do
+	for P in ${!PORTS[@]}; do
+		pw-link "$DEFAULT_OUTPUT:monitor_${PORTS[$P]}" "$ADDITIONAL_OUTPUT:playback_${ADD_PORTS[$P]}" &>/dev/null
+	done
 
-    sleep 5
+	sleep 5
 done
