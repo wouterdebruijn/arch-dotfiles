@@ -1,0 +1,12 @@
+[Unit]
+Description=Start Discord on system resume
+After=default.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/bin/discord
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=default.target
