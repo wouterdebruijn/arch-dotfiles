@@ -104,6 +104,9 @@ bindsym Print exec --no-startup-id screenshot -s
 bindsym $mod+Print exec --no-startup-id screenshot -g 2560x1440+2560+0
 bindsym $mod+shift+Print exec sxiv ~/Pictures/screenshot.jpg
 
+# Toggle sticky
+bindsym $mod+shift+s sticky toggle
+
 # Toggle picom transparency role
 bindsym $mod+t exec --no-startup-id toggle-transparency
 
