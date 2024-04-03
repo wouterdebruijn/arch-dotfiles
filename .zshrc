@@ -73,6 +73,7 @@ ZSH_CUSTOM="$HOME/.zsh_customizations"
 plugins=(
   git
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,7 +101,7 @@ if [ -z "$SSH_CLIENT" ]; then
 fi
 
 alias cwd="pwd | clipcopy"
-alias owd="nohup thunar &> /dev/null"
+alias owd="nohup thunar &> /dev/null &"
 
 # pnpm
 export PNPM_HOME="/home/wouter/.local/share/pnpm"
@@ -109,3 +110,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
