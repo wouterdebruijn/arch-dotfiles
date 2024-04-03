@@ -1,0 +1,154 @@
+#!/bin/python
+
+API_URL="https://wallhaven.cc/api/v1/search"
+
+
+from random import randint
+from requests import get
+import os
+import PySimpleGUIQt as sg
+import io
+from PIL import Image
+import threading
+
+# Use linux breeze theme
+sg.theme("SystemDefaultForReal")
+
+# change button style
+sg.SetOptions(button_element_size=(12, 1), auto_size_buttons=False)
+
+# read pywal colors
+with open("/home/wouter/.cache/wal/colors") as file:
+  colors = file.readlines()
+
+  # set window background color
+  sg.theme_background_color(colors[0].strip())
+
+  # set text color
+  sg.theme_text_color(colors[7].strip())
+
+  # set button color
+  sg.theme_button_color((colors[1].strip(), colors[0].strip()))
+
+  # set element background color
+  sg.theme_element_background_color(colors[0].strip())
+
+  # set input element color
+  sg.theme_input_background_color(colors[0].strip())
+
+def set_wallpaper(url, id):
+  response = get(url)
+
+  if response.status_code != 200:
+    print("Failed to download wallpaper")
+    return
+  
+  with open(f"/home/wouter/Pictures/Wallpapers/wallhaven-{id}.jpg", "wb") as file:
+    file.write(response.content)
+
+  # execute os command to set wallpaper
+  os.system(f"/home/wouter/.config/bin/set-wallpaper ~/Pictures/Wallpapers/wallhaven-{id}.jpg")
+
+def fetch_thumbnail(url, id):
+  response = get(url)
+
+  if response.status_code != 200:
+    print("Failed to download wallpaper")
+    return
+  
+  with open(f"/home/wouter/Pictures/Wallpapers/Random/thumbs/wallhaven-{id}.jpg", "wb") as file:
+    file.write(response.content)
+
+def get_thumbnail(id):
+  with open(f"/home/wouter/Pictures/Wallpapers/Random/thumbs/wallhaven-{id}.jpg", "rb") as file:
+    # convert to png
+    image = Image.open(file)
+    
+    image = image.resize((600, 338))
+
+    byte_array = io.BytesIO()
+    image.save(byte_array, format="PNG")
+    byte_array.seek(0)
+    return byte_array.read()
+  
+
+def main():
+  # Get a random page
+  seed = randint(1, 999999)
+
+  # Get a random wallpaper
+  params = {
+    "apikey": API_KEY,
+    "categories": "111",
+    "purity": "100",
+    "atleast": "2560x1440",
+    "sorting": "random",
+    "order": "desc",
+    "ai_art_filter": "1",
+    "seed": seed
+  }
+  
+  response = get(API_URL, params=params)
+
+  if response.status_code != 200:
+    print("Failed to fetch wallpapers")
+    return
+  
+  data = response.json()
+
+  if len(data["data"]) == 0:
+    print("No wallpapers found")
+    return
+  
+  # Fetch thumbnails multithreaded
+  threads = []
+
+  for wallpaper in data["data"]:
+    url = wallpaper["thumbs"]["large"]
+    id = wallpaper["id"]
+    thread = threading.Thread(target=fetch_thumbnail, args=(url, id))
+    threads.append(thread)
+    thread.start()
+
+  for thread in threads:
+    thread.join()
+
+  # Create a simple GUI to display the wallpapers
+  index = 0
+
+  def getActiveThumbnail():
+    return get_thumbnail(data["data"][index]["id"])
+
+  layout = [
+    [sg.Image(key="current", data=getActiveThumbnail())],
+    [sg.Text(f"Wallpaper {index + 1}/{len(data['data'])}", key="index")],
+    [sg.Button("Random"), sg.Button("Save"), sg.Button("Previous"), sg.Button("Next"), sg.Button("Quit")],
+  ]
+
+  # Nasty stuff so the window centers on my right monitor, for some reason it doesn't work with the location parameter
+  window = sg.Window("Randomized Wallpaper", layout, element_justification="center", finalize=True)
+
+  while True:
+    event, values = window.read()
+
+    if event == sg.WIN_CLOSED or event == "Quit":
+      break
+    elif event == "Previous":
+      index = (index - 1) % len(data["data"])
+      window["current"].update(data=getActiveThumbnail())
+      window["index"].update(f"Wallpaper {index + 1}/{len(data['data'])}")
+    elif event == "Next":
+      index = (index + 1) % len(data["data"])
+      window["current"].update(data=getActiveThumbnail())
+      window["index"].update(f"Wallpaper {index + 1}/{len(data['data'])}")
+    elif event == "Random":
+      index = randint(0, len(data["data"]) - 1)
+      set_wallpaper(data["data"][index]["path"], data["data"][index]["id"])
+    elif event == "Save":
+      set_wallpaper(data["data"][index]["path"], data["data"][index]["id"])
+
+  window.close()
+
+
+if __name__ == "__main__":
+  main()
