@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Screen locking script made by Wouter de Bruijn on 22-03-2024, HHS LANXXL
+
+magick $(cat ~/.cache/wal/wal) -resize 2560x1440^ -gravity center -extent 2560x1440 RGB: | i3lock --raw 2560x1440:rgb --image /dev/stdin
