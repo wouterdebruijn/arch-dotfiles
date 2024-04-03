@@ -35,8 +35,10 @@ audio/x-mpegurl=nvim.desktop;wine-extension-txt.desktop;
 application/vnd.apple.mpegurl=vlc.desktop;
 application/sql=code.desktop;
 application/rtf=libreoffice-writer.desktop;nvim.desktop;
-application/xml=code.desktop;
+application/xml=org.kde.kate.desktop;code.desktop;
 application/x-spss-sav=bless.desktop;
+application/x-pem-file=org.kde.kate.desktop;
+application/x-x509-ca-cert=org.kde.kate.desktop;org.gnome.seahorse.Application.desktop;
 
 [Default Applications]
 image/x-tga=sxiv.desktop
