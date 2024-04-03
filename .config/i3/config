@@ -271,11 +271,11 @@ mode "resize" {
 
         bindsym c move position center
 
-        bindsym 1 resize set 800 600 px; move position center
-        bindsym 2 resize set 800 800 px; move position center
-        bindsym 3 resize set 1000 1000 px; move position center
-        bindsym 4 resize set 1920 1080 px; move position center
-        bindsym 5 resize set 2400 1300 px; move position center
+        bindsym 1 resize set 800 600 px
+        bindsym 2 resize set 902 796 px
+        bindsym 3 resize set 1272 696 px
+        bindsym 4 resize set 1920 1080 px
+        bindsym 5 resize set 2400 1300 px
 
         bindsym $mod+1 resize set 800 600 px
         bindsym $mod+2 resize set 800 800 px
@@ -329,3 +329,5 @@ for_window [title="Android Emulator.*"] floating enable
 
 # Calculator
 for_window [class="kcalc"] floating enable
+
+for_window [class="random-wallheaven"] floating enable
