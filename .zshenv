@@ -1,13 +1,13 @@
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$HOME/.config/bin:$HOME/.local/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export GTK_THEME=Adwaita:dark
+#export GTK_THEME=Adwaita:dark
 export TERMINAL=alacritty
 export VISUAL=nvim
 export EDITOR=nvim
 export MAKEFLAGS="-j$(nproc)"
 export SSH_ASKPASS=lxqt-openssh-askpass
-export QT_QPA_PLATFORMTHEME=qt5ct
 export GPG_TTY=$(tty)
 export TERM=xterm-256color
-export QT_QPA_PLATFORMTHEME=qt5ct
+export REACT_EDITOR=/usr/bin/code
+export QT_QPA_PLATFORMTHEME=gtk2
